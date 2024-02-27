@@ -12,14 +12,11 @@ import { getReport } from './lib/actions/get-report';
 import { existsTask } from './lib/actions/task-exists';
 import { createInvoice } from './lib/actions/create-invoice';
 import { createClient } from './lib/actions/create-client';
+import { baseUrlShortText } from '@activepieces/pieces-validator';
 
 export const invoiceninjaAuth = PieceAuth.CustomAuth({
   props: {
-    base_url: Property.ShortText({
-      displayName: 'Base URL',
-      description: 'Enter the base URL',
-      required: true,
-    }),
+    base_url: baseUrlShortText(),
     access_token: Property.ShortText({
       displayName: 'API Token',
       description: 'Enter the API token',

@@ -4,6 +4,7 @@ import {
   HttpRequest,
 } from '@activepieces/pieces-common';
 import { SendyAuthType } from './auth';
+import { isOfTypeObject } from '@activepieces/pieces-validator';
 
 type KeyValuePair = { [key: string]: string | boolean | undefined };
 
@@ -46,7 +47,7 @@ const sendyPostAPI = async (
   let text = 'Success';
 
   // If the response is a JSON object, then we know that the request was successful
-  if (typeof response.body === 'object') {
+  if (isOfTypeObject(response.body)) {
     data = Object.keys(response.body).map((key) => response.body[key]);
     success = true;
   } else {

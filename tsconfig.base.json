@@ -538,6 +538,9 @@
       "@activepieces/pieces-common": [
         "packages/pieces/community/common/src/index.ts"
       ],
+      "@activepieces/pieces-validator": [
+        "packages/pieces/community/validator/src/index.ts"
+      ],
       "@activepieces/pieces-framework": [
         "packages/pieces/community/framework/src/index.ts"
       ],

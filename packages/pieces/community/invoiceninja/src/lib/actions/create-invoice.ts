@@ -5,6 +5,7 @@ import {
 } from '@activepieces/pieces-framework';
 
 import { invoiceninjaAuth } from '../..';
+import { isOfTypeObject } from '@activepieces/pieces-validator';
 
 export const createInvoice = createAction({
   auth: invoiceninjaAuth,
@@ -101,7 +102,7 @@ export const createInvoice = createAction({
     }
 
     const isValidLineItem = lineItemsArray.every(item => (
-      typeof item === 'object' &&
+      isOfTypeObject(item) &&
       'quantity' in item && typeof item.quantity === 'number' &&
       'product_key' in item && typeof item.product_key === 'string' &&
       'discount' in item && typeof item.discount === 'string'
